@@ -1,0 +1,20 @@
+# Durga Traders - Environment Configuration
+# Copy this file to .env and update with your MySQL credentials
+
+# Database Configuration
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password_here
+DB_NAME=durga_traders
+
+# Server Configuration
+PORT=3000
+
+# Instructions:
+# 1. Copy this file to .env
+# 2. Update DB_PASSWORD with your actual MySQL password
+# 3. Update DB_USER if you're not using 'root'
+# 4. Update DB_HOST if MySQL is not running on localhost
+# 5. Run: npm run setup-db (to create database and tables)
+# 6. Run: npm start (to start the application)
+

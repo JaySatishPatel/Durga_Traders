@@ -10,53 +10,39 @@ A web application for managing tile inventory with MySQL database.
 
 ## Setup Instructions
 
-1. Install dependencies:
+1. **Install dependencies:**
 ```bash
 npm install
 ```
 
-2. Set up MySQL database:
-```sql
-CREATE DATABASE durga_traders;
-USE durga_traders;
+2. **Configure environment variables:**
+   - Copy `env-template.txt` to `.env`
+   - Update the `.env` file with your MySQL credentials:
+   ```
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASSWORD=your_actual_mysql_password
+   DB_NAME=durga_traders
+   PORT=3000
+   ```
 
-CREATE TABLE tiles (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    type VARCHAR(100) NOT NULL,
-    size VARCHAR(50) NOT NULL,
-    color VARCHAR(100) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    quantity INT NOT NULL DEFAULT 0,
-    supplier VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-CREATE TABLE bills (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_name VARCHAR(255) NOT NULL,
-    customer_phone VARCHAR(20),
-    customer_address TEXT,
-    total_amount DECIMAL(10,2) NOT NULL,
-    bill_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    items JSON NOT NULL
-);
+3. **Set up MySQL database:**
+```bash
+npm run setup-db
 ```
+   This will automatically create the database, tables, and insert sample data.
 
-3. Create `.env` file:
+4. **Start the application:**
+```bash
+npm start
 ```
-DB_HOST=localhost
-DB_USER=your_mysql_username
-DB_PASSWORD=your_mysql_password
-DB_NAME=durga_traders
-PORT=3000
-```
-
-4. Start the application:
+   Or for development with auto-restart:
 ```bash
 npm run dev
 ```
+
+5. **Access the application:**
+   Open your browser and go to `http://localhost:3000`
 
 ## API Endpoints
 
