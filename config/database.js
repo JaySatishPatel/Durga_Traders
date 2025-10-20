@@ -1,17 +1,14 @@
 const mysql = require('mysql2');
-require('dotenv').config();
+require('dotenv').config({ path: './config.env' });
 
 const dbConfig = {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    password: process.env.DB_PASSWORD || 'Jay@2210',
     database: process.env.DB_NAME || 'durga_traders',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0,
-    acquireTimeout: 60000,
-    timeout: 60000,
-    reconnect: true
+    queueLimit: 0
 };
 
 const pool = mysql.createPool(dbConfig);
@@ -20,7 +17,7 @@ const pool = mysql.createPool(dbConfig);
 pool.getConnection((err, connection) => {
     if (err) {
         console.error('Database connection failed:', err.message);
-        console.error('Please check your database configuration in .env file');
+        console.error('Please check your database configuration in config.env file');
         return;
     }
     console.log('✅ Connected to MySQL database successfully');

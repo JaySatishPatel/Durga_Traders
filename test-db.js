@@ -8,7 +8,7 @@ db.getConnection((err, connection) => {
         console.error('❌ Database connection failed:', err.message);
         console.error('\n🔧 Troubleshooting steps:');
         console.error('1. Make sure MySQL is running');
-        console.error('2. Check your .env file configuration');
+        console.error('2. Check your config.env file configuration');
         console.error('3. Verify database credentials');
         console.error('4. Run: npm run setup-db');
         process.exit(1);
@@ -30,4 +30,5 @@ db.getConnection((err, connection) => {
         process.exit(0);
     });
 });
+
 

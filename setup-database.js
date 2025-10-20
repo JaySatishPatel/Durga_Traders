@@ -1,11 +1,11 @@
 const mysql = require('mysql2');
-require('dotenv').config();
+require('dotenv').config({ path: './config.env' });
 
 // Database configuration
 const dbConfig = {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
+    password: process.env.DB_PASSWORD || 'Jay@2210',
     multipleStatements: true
 };
 
@@ -79,7 +79,7 @@ connection.connect((err) => {
         console.error('❌ Database connection failed:', err.message);
         console.error('\n📝 Please check your database configuration:');
         console.error('1. Make sure MySQL is running');
-        console.error('2. Update your .env file with correct credentials:');
+        console.error('2. Update your config.env file with correct credentials:');
         console.error('   DB_HOST=localhost');
         console.error('   DB_USER=your_username');
         console.error('   DB_PASSWORD=your_password');
@@ -105,4 +105,5 @@ connection.connect((err) => {
         connection.end();
     });
 });
+
 
