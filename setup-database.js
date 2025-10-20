@@ -5,7 +5,7 @@ require('dotenv').config({ path: './config.env' });
 const dbConfig = {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || 'Jay@2210',
+    password: process.env.DB_PASSWORD || '',
     multipleStatements: true
 };
 
