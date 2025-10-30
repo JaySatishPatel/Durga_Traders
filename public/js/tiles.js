@@ -18,8 +18,11 @@ function renderTilesTable() {
     tiles.forEach(tile => {
         const row = document.createElement('tr');
         row.innerHTML = `
+            <td>${tile.id}</td>
             <td>${tile.name}</td>
+            <td><span class="badge bg-primary">${tile.type}</span></td>
             <td>${tile.size}</td>
+            <td>${tile.color}</td>
             <td>₹${tile.price}</td>
             <td>
                 <span class="badge ${tile.quantity > 50 ? 'bg-success' : tile.quantity > 20 ? 'bg-warning' : 'bg-danger'}">
